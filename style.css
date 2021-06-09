@@ -9,6 +9,12 @@
 	color: hsl(228, 45%, 44%);
 }
 
+/* 
+=================
+	GLOBAL CONFIG
+================= 
+*/
+
 * {
 	margin: 0;
 	padding: 0;
@@ -51,11 +57,14 @@ body {
 header {
 	color: var(--white);
 	margin: 0 auto;
+	position: relative;
 }
+
 h1 {
 	color: var(--white);
 	font-size: 64px;
 }
+
 h4 {
 	font-size: 20px;
 	font-weight: 300;
@@ -67,9 +76,11 @@ nav {
 	justify-content: space-between;
 	padding: 0 80px;
 }
+
 ul {
 	list-style: none;
 }
+
 button {
 	width: 137px;
 	height: 48px;
@@ -82,13 +93,16 @@ button {
 	font-size: 16px;
 	transition: 0.3s;
 }
+
 button:hover {
 	color: var(--white);
 	background-color: var(--veryLightRedHover);
 }
+
 a {
 	text-decoration: none;
 }
+
 button,
 a,
 li {
@@ -121,10 +135,17 @@ li > a::after {
 
 li > a:hover::after,
 li > a:focus::after,
-li > a:focus ~ .sub_menu  {
+li > a:focus ~ .sub_menu {
 	opacity: 1;
 	transform: translate3d(0, 0.2em, 0);
 }
+
+/* 
+=================
+		HEADER
+================= 
+*/
+
 .menu_container {
 	display: flex;
 	align-items: center;
@@ -142,10 +163,6 @@ li > a:focus ~ .sub_menu  {
 }
 
 .sub_menu {
-	/* display: none; */
-	opacity: 0;
-	transition: opacity 300ms, transform 300ms;
-
 	position: absolute;
 	width: 168px;
 	margin-top: 30px;
@@ -155,6 +172,9 @@ li > a:focus ~ .sub_menu  {
 	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
 	color: var(--veryDarkBlackBlue);
 	font-weight: 300;
+
+	opacity: 0;
+	transition: opacity 300ms, transform 300ms;
 }
 
 .sub_menu li {
@@ -201,20 +221,22 @@ li > a:focus ~ .sub_menu  {
 	padding: 60px;
 	height: 600px;
 	border-radius: 0 0 0 100px;
-	background: linear-gradient(to bottom right, var(--veryLightRed), var(--lightRed));
 	overflow: hidden;
-	/* z-index: 100; */
+
+	background-image: url(../images/bg-pattern-intro.svg);
+	background-repeat: no-repeat;
+	background-attachment: local;
+	background-position-y: 52%;
+	background-position-x: 25%;
 }
 
-header > img {
-	/* } */
-	/* .hero::before { */
-	/* content: ""; */
+.hero::before {
+	content: "";
 	position: absolute;
-	/* height: 529%;
-	width: 131%; */
-
-	top: -228%;
-	left: -31%;
-	/* background-image: url(../images/bg-pattern-intro.svg); */
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: linear-gradient(to bottom right, var(--veryLightRed), var(--lightRed));
+	z-index: -1;
 }
