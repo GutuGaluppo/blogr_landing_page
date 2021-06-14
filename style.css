@@ -26,24 +26,22 @@
 	/* === Primary === */
 	--lightRed: hsl(356, 100%, 66%);
 	--veryLightRedHover: hsl(355, 100%, 74%);
-	--veryDarkBlue: hsl(208, 49%, 24%);
+	--headings: hsl(208, 49%, 24%);
 
 	/* === Neutral === */
 
-	--white: hsl(0, 0%, 100%);
-	--grayishBlue: hsl(240, 2%, 79%);
-	--veryDarkGrayishBlue: hsl(207, 13%, 34%);
-	--veryDarkBlackBlue: hsl(240, 10%, 16%);
+	--text: hsl(0, 0%, 100%);
+	--footerText: hsl(240, 3%, 79%);
+	--bodyText: hsl(206, 13%, 34%);
+	--footerBG: hsl(240, 10%, 16%);
 
 	/* === Gradient === */
 
 	/* Background gradient - Intro/CTA mobile nav: */
-
 	--veryLightRed: hsl(13, 100%, 72%);
 	--lightRed: hsl(353, 100%, 62%);
 
 	/* Background gradient - body: */
-
 	--veryDarkGrayBlue: hsl(237, 17%, 21%);
 	--veryDarkDesaturatedBlue: hsl(237, 23%, 32%);
 }
@@ -55,14 +53,24 @@ body {
 }
 
 header {
-	color: var(--white);
+	color: var(--text);
 	margin: 0 auto;
 	position: relative;
 }
 
 h1 {
-	color: var(--white);
+	color: var(--text);
 	font-size: 64px;
+}
+
+h2 {
+	font-size: 40px;
+	color: var(--headings);
+}
+
+h3 {
+	font-size: 28px;
+	color: var(--headings);
 }
 
 h4 {
@@ -86,7 +94,7 @@ button {
 	height: 48px;
 	margin: 5px;
 	color: var(--lightRed);
-	background-color: var(--white);
+	background-color: var(--text);
 	border: none;
 	border-radius: 28px;
 	font-weight: bold;
@@ -95,7 +103,7 @@ button {
 }
 
 button:hover {
-	color: var(--white);
+	color: var(--text);
 	background-color: var(--veryLightRedHover);
 }
 
@@ -118,7 +126,7 @@ li > a {
 	position: relative;
 	display: block;
 	padding: 0.2em 0;
-	color: var(--white);
+	color: var(--text);
 }
 
 li > a::after {
@@ -128,16 +136,108 @@ li > a::after {
 	left: 0;
 	width: 100%;
 	height: 0.1em;
-	background-color: var(--white);
+	background-color: var(--text);
 	opacity: 0;
 	transition: opacity 300ms, transform 300ms;
 }
 
-li > a:hover::after,
-li > a:focus::after,
-li > a:focus ~ .sub_menu {
+.nav_menu > li > a:hover::after,
+.nav_menu > li > a:focus::after,
+.nav_menu > li > a:focus ~ .sub_menu {
 	opacity: 1;
 	transform: translate3d(0, 0.2em, 0);
+}
+
+footer {
+	height: 359px;
+	padding: 70px 165px;
+	border-radius: 0 100px 0 0;
+	background-color: var(--footerBG);
+}
+footer > ul {
+	display: flex;
+	align-items: flex-start;
+}
+footer > ul > li {
+	font-weight: bold;
+	color: var(--text);
+	flex: 1;
+}
+footer > ul > li:hover {
+	cursor: default;
+}
+
+section {
+	position: relative;
+	padding: 125px 144px;
+}
+section h3 {
+	margin: 55px 0 20px;
+}
+section p {
+	width: 502px;
+	color: var(--bodyText);
+}
+section.white {
+	overflow: hidden;
+	min-height: 1000px;
+}
+
+section:nth-child(2) h2 {
+	text-align: center;
+	margin-bottom: 80px;
+}
+section:nth-child(2) .content,
+section:nth-child(4) .content {
+	width: fit-content;
+	position: absolute;
+	display: flex;
+	align-items: center;
+}
+section:nth-child(2) .content {
+	top: 64px;
+}
+section:nth-child(2) img {
+	margin-left: 104px;
+}
+
+section:nth-child(3) {
+	height: 400px;
+	position: relative;
+	background-image: url(../images/bg-pattern-circles.svg);
+	background-repeat: no-repeat;
+	background-attachment: local;
+	background-position-y: 78%;
+	background-position-x: -48%;
+}
+section:nth-child(3)::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: linear-gradient(to bottom right, var(--veryDarkGrayBlue), var(--veryDarkDesaturatedBlue));
+	border-radius: 0 100px;
+	z-index: -1;
+}
+section:nth-child(3) * {
+	color: var(--text);
+}
+section:nth-child(3) > div {
+	float: right;
+}
+section:nth-child(3) img {
+	position: absolute;
+	top: -18%;
+	left: 8%;
+}
+
+section:nth-child(4) .content {
+	left: -280px;
+}
+section:nth-child(4) img {
+	margin-right: 70px;
 }
 
 /* 
@@ -168,7 +268,7 @@ li > a:focus ~ .sub_menu {
 	margin-top: 30px;
 	padding: 20px;
 	border-radius: 5px;
-	background-color: var(--white);
+	background-color: var(--text);
 	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
 	color: var(--veryDarkBlackBlue);
 	font-weight: 300;
@@ -181,7 +281,7 @@ li > a:focus ~ .sub_menu {
 	padding: 10px 0;
 }
 .sub_menu a {
-	color: inherit;
+	color: var(--veryDarkGrayBlue);
 }
 .sub_menu a:hover {
 	font-weight: bold;
@@ -201,18 +301,18 @@ li > a:focus ~ .sub_menu {
 	margin-top: 40px;
 }
 .call_to_action button:nth-child(2) {
-	border: 1px solid var(--white);
+	border: 1px solid var(--text);
 	background: transparent;
-	color: var(--white);
+	color: var(--text);
 }
 .call_to_action button:nth-child(2):hover {
-	background-color: var(--white);
+	background-color: var(--text);
 	color: var(--lightRed);
 }
 
 .singup_container > a {
 	text-decoration: none;
-	color: var(--white);
+	color: var(--text);
 	font-weight: bold;
 	margin-right: 20px;
 }
@@ -222,7 +322,9 @@ li > a:focus ~ .sub_menu {
 	height: 600px;
 	border-radius: 0 0 0 100px;
 	overflow: hidden;
-
+	transition: ease-in-out 0.3s;
+}
+.hero:hover {
 	background-image: url(../images/bg-pattern-intro.svg);
 	background-repeat: no-repeat;
 	background-attachment: local;
@@ -239,4 +341,21 @@ li > a:focus ~ .sub_menu {
 	left: 0;
 	background: linear-gradient(to bottom right, var(--veryLightRed), var(--lightRed));
 	z-index: -1;
+}
+
+.text_box {
+	width: 540px;
+}
+
+.footer_sub_menu {
+	margin-top: 30px;
+}
+.footer_sub_menu > li > a {
+	font-size: 15px;
+	color: var(--footerText);
+	padding: 10px 0;
+}
+
+.footer_sub_menu > li > a:hover {
+	text-decoration-line: underline;
 }
